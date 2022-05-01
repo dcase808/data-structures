@@ -1,7 +1,7 @@
 class Node:
     def __init__(self, data, next = None):
         self.data = data
-        self.next = None
+        self.next = next
     
     def __str__(self):
         return self.data
@@ -16,50 +16,30 @@ class LinkedList:
             self.size = 0
 
     def add(self, data):
-        if self.size == 0:
-            self.root = Node(data)
-            self.size += 1
-            return self.root
-        node = self.root
-        while node.next != None:
-            node = node.next
-        node.next = Node(data)
+        new_node = Node(data, self.root)
+        self.root = new_node
         self.size += 1
-        return node.next
+        return new_node
     
     def remove(self, data):
-        if self.size == 0:
-            return None
-        
         node = self.root
-
         if node.data == data:
             self.root = node.next
             self.size -= 1
             return data
-
-        while node.next != None:
+        
+        while node.next is not None:
             if node.next.data == data:
-                node.next == node.next.next
-                self.size -= 1
+                node.next = node.next.next
                 return data
             node = node.next
-        
-        return None
     
     def find(self, data):
-        if self.size == 0:
-            return None
-        
-        is_next_none = False
         node = self.root
-
-        while not is_next_none:
+        while node is not None:
             if node.data == data:
                 return data
-            is_next_none = node.next == None
             node = node.next
-
         return None
 
     def __str__(self):
