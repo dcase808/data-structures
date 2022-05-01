@@ -19,7 +19,7 @@ class LinkedList:
         new_node = Node(data, self.root)
         self.root = new_node
         self.size += 1
-        return new_node
+        return data
     
     def remove(self, data):
         node = self.root
