@@ -4,7 +4,7 @@ class Node:
         self.next = next
     
     def __str__(self):
-        return self.data
+        return str(self.data)
 
 class LinkedList:
     def __init__(self, root = None):
