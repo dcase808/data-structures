@@ -47,7 +47,6 @@ class BinaryTree:
         que = Queue()
         que.enqueue(self.root.left)
         que.enqueue(self.root.right)
-        print(self.root.value)
         while que.peek():
             node = que.dequeue()
             if node.value == value:
@@ -57,3 +56,17 @@ class BinaryTree:
             if node.right:
                 que.enqueue(node.right)
         return False
+    
+    def sum(self):
+        que = Queue()
+        que.enqueue(self.root.left)
+        que.enqueue(self.root.right)
+        sum = 0
+        while que.peek():
+            node = que.dequeue()
+            sum += node.value
+            if node.left:
+                que.enqueue(node.left)
+            if node.right:
+                que.enqueue(node.right)
+        return sum
