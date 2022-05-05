@@ -9,6 +9,9 @@ class Node:
 class BinaryTree:
     def __init__(self, value):
         self.root = Node(value)
+        self.build_example_tree()
+
+    def build_example_tree(self):
         self.root.left = Node(9)
         self.root.left.left = Node(7)
         self.root.left.right = Node(8)
